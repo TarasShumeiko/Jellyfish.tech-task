@@ -1,0 +1,1 @@
+export const selectBitcoin = (state) => state.bitcoin.bitcoin;
