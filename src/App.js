@@ -17,11 +17,10 @@ class App extends Component {
   };
 
   componentDidMount() {
-    if (localStorage.getItem('name')) {
-      const screen = localStorage.getItem('screen');
-      const name = localStorage.getItem('name');
+    const name = localStorage.getItem('name');
+    if (name) {
       this.setState({
-        screen,
+        screen: Screen.CURRENCIES,
         name
       })
     }
@@ -31,7 +30,6 @@ class App extends Component {
     const { value } = event.target;
     if (value) {
       this.setState({ name: value });
-      localStorage.setItem('screen', Screen.CURRENCIES);
       localStorage.setItem('name', value);
     }
   };
