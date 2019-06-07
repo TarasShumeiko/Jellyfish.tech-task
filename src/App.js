@@ -30,7 +30,6 @@ class App extends Component {
 
   handleChangeCurrency = (event) => {
     const { value } = event.target;
-    console.log('curr', value);
     this.setState({ currency: value });
   };
 
@@ -44,7 +43,6 @@ class App extends Component {
 
   render() {
     const { screen, name, currency } = this.state;
-    console.log("STATE", this.state);
 
     switch (screen) {
       case Screen.NAME:

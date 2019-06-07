@@ -35,7 +35,6 @@ const Bitcoin = ({ currency, onClick }) => {
     const fetchData = async () => {
       const result = await fetch(`https://apiv2.bitcoinaverage.com/indices/global/ticker/short?crypto=BTC&fiat=${currency}`);
       const data = await result.json();
-      console.log('data', data);
       setValue(data[`BTC${currency}`].last)
     };
     fetchData();
