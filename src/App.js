@@ -16,10 +16,23 @@ class App extends Component {
     currency: ''
   };
 
+  componentDidMount() {
+    if (localStorage.getItem('name')) {
+      const screen = localStorage.getItem('screen');
+      const name = localStorage.getItem('name');
+      this.setState({
+        screen,
+        name
+      })
+    }
+  }
+
   handleChangeName = (event) => {
     const { value } = event.target;
     if (value) {
       this.setState({ name: value });
+      localStorage.setItem('screen', Screen.CURRENCIES);
+      localStorage.setItem('name', value);
     }
   };
 
