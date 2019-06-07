@@ -1,9 +1,8 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { NavLink } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
-import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(() => ({
   '@global': {
@@ -32,34 +31,26 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const Name = ({ history }) => {
+const Name = ({ value, onChange, onSubmit }) => {
   const classes = useStyles();
-  const [name, setName] = React.useState('');
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (name) {
-      history.push('/currencies');
-    }
-  };
-
   return (
-    <form className={classes.container} onSubmit={handleSubmit}>
+    <form className={classes.container} onSubmit={onSubmit}>
       <TextField
         label="Enter your name:"
         className={clsx(classes.textField)}
-        onChange={event => setName(event.target.value)}
+        value={value}
+        onChange={onChange}
         margin="dense"
       />
       <Button
         type="submit"
         className={classes.button}
-        disabled={!name}
+        disabled={!value}
       >
         confirm
       </Button>
     </form>
-  );
+  )
 };
 
 export default Name;

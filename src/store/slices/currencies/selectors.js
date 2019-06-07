@@ -1,1 +1,0 @@
-export const selectCurrencies = (state) => state.currencies.currencies;
